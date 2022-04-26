@@ -26,18 +26,23 @@
       Guess: <input type="number" step="1" min="1" max="6" name="guess"> <br>
 			<br><br>
 			<input type ="submit" name ="submit"  value="Guess">
-		<!-- Calculations for Fahrenheit to Celsius (With User Input) -->
+		<!-- Creates random number and outputs back if guessed correctly -->
 		<?php
-			if(isset($_POST['submit'])) { // When Button clicked
+      // If Button clicked
+			if(isset($_POST['submit'])) {
+        // Ensures guess field is not empty
         if($_POST['guess'] != "") {
-          $guess = $_POST['guess']; // Input for the Fahrenheit
-  				$answer = rand(1, 6); // Calculations for Fahrenheit to Celsius
-
+          // Variables
+          $guess = $_POST['guess']; 
+  				$answer = rand(1, 6); // Creates random number from 1-6
+          // If user guesses correctly
           if ($guess == $answer) {
             echo "<br><h4>You got the number correctly! The answer was " . $answer . "</h4>";
+            // If user guesses wrong
           } else {
             echo "<br><h4>You got the number wrong! The answer was " . $answer . "</h4>";
           }
+          // If user did not guess yet pressed button
         } else {
           echo "<h4>Please fill the guess box.</h4>";
         }
