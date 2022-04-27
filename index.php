@@ -32,17 +32,22 @@
 			if(isset($_POST['submit'])) {
         // Ensures guess field is not empty
         if($_POST['guess'] != "") {
+          // Constants (Max and Min values for random number)
+          define("MAX", 6);
+          define("MIN", 1);
+          
           // Variables
           $guess = $_POST['guess']; 
-  				$answer = rand(1, 6); // Creates random number from 1-6
+  				$answer = rand(MIN, MAX); // Creates random number from 1-6
+          
           // If user guesses correctly
           if ($guess == $answer) {
             echo "<br><h4>You got the number correctly! The answer was " . $answer . "</h4>";
             // If user guesses wrong
           } else {
-            echo "<br><h4>You got the number wrong! The answer was " . $answer . "</h4>";
+            echo "<br><h4>Your guess of " . $guess . " was wrong! The answer was " . $answer . "</h4>";
           }
-          // If user did not guess yet pressed button
+          // If user did not guess, yet pressed button
         } else {
           echo "<h4>Please fill the guess box.</h4>";
         }
@@ -50,5 +55,3 @@
 		?>
   </body>
 </html>
-
-
